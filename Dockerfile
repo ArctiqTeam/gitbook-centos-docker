@@ -3,7 +3,9 @@ MAINTAINER stewartshea <shea.stewart@arctiq.cam>
 
 #inspired by billryan/gitbook:base
 
-RUN yum install -y npm && \
+RUN wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-10.noarch.rpm &&\
+    rpm -ivh epel-release-7-10.noarch.rpm && \
+    yum install -y npm && \
     npm install gitbook-cli -g
 
 
