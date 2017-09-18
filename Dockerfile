@@ -17,8 +17,12 @@ ENV BOOKDIR /gitbook
 
 WORKDIR $BOOKDIR
 
-ADD scripts/run.sh /gitbook/
-RUN chmod +x /gitbook/run.sh
+#ADD scripts/run.sh /gitbook/
+#RUN chmod +x /gitbook/run.sh
+
+RUN git clone $GIT_URL docs && \
+    cd docs && \
+    gitbook serve
 
 VOLUME $BOOKDIR
 EXPOSE 4000
