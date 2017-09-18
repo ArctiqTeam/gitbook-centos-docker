@@ -1,4 +1,4 @@
 #!/bin/bash
-git clone https://github.com/stewartshea/gitbook-sample
+git clone $GIT_URL
 cd gitbook-sample
 gitbook serve
