@@ -15,11 +15,10 @@ RUN gitbook fetch latest
 
 ENV BOOKDIR /gitbook
 
-RUN chmod 777 $BOOKDIR
-
 WORKDIR $BOOKDIR
 
 ADD scripts/run.sh /gitbook/
+RUN chmod 777 $BOOKDIR
 RUN chmod +x /gitbook/run.sh
 
 
