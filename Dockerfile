@@ -17,8 +17,10 @@ ENV BOOKDIR /gitbook
 
 WORKDIR $BOOKDIR
 
+RUN chgrp -R 0 $BOOKDIR && \
+    chmod -R g=u $BOOKDIR
+
 ADD scripts/run.sh /gitbook/
-RUN chmod 777 $BOOKDIR
 RUN chmod +x /gitbook/run.sh
 
 
