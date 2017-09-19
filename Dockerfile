@@ -10,8 +10,8 @@ RUN yum install -y wget git && \
     npm install gitbook-cli -g
 
 
-RUN useradd -m -g 100 -u 10000000101 gitbook
-USER gitbook
+RUN useradd -m -g 100 -u 10000000101
+USER 10000000101
 
 # install gitbook versions
 RUN gitbook fetch latest
