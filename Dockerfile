@@ -15,6 +15,7 @@ RUN gitbook fetch latest
 
 ENV BOOKDIR /gitbook
 
+USER 10001
 WORKDIR $BOOKDIR
 
 RUN chgrp -R 0 $BOOKDIR && \
