@@ -1,4 +1,4 @@
 #!/bin/bash
-git clone $GIT_URL
-cd gitbook-sample
+git clone -b  $BRANCH $GIT_URL docs
+cd docs
 gitbook serve
