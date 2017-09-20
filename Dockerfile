@@ -20,12 +20,12 @@ WORKDIR $BOOKDIR
 RUN chgrp -R 0 $BOOKDIR && \
     chmod -R g=u $BOOKDIR
 
-USER 10001
 ADD scripts/run.sh /gitbook/
 RUN chmod +x /gitbook/run.sh
 
 
 VOLUME $BOOKDIR
 EXPOSE 4000
+USER 10001
 
 CMD ["/bin/bash", "-c", "/gitbook/run.sh"]
