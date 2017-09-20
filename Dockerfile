@@ -27,7 +27,7 @@ WORKDIR ${APP_ROOT}
 
 EXPOSE 4000
 
-ENTRYPOINT [ "uid_entrypoint" ]
+# ENTRYPOINT [ "uid_entrypoint" ]
 
 VOLUME ${APP_ROOT}/logs ${APP_ROOT}/data
 
