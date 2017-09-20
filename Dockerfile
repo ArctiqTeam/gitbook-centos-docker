@@ -15,12 +15,12 @@ RUN gitbook fetch latest
 
 ENV BOOKDIR /gitbook
 
-USER 10001
 WORKDIR $BOOKDIR
 
 RUN chgrp -R 0 $BOOKDIR && \
     chmod -R g=u $BOOKDIR
 
+USER 10001
 ADD scripts/run.sh /gitbook/
 RUN chmod +x /gitbook/run.sh
 
