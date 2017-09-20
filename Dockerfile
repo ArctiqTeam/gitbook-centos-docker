@@ -31,4 +31,4 @@ EXPOSE 4000
 
 VOLUME ${APP_ROOT}/logs ${APP_ROOT}/data
 
-CMD ["/bin/bash", "-c", "/gitbook/run.sh"]
+CMD ["/bin/bash", "-c", "${APP_ROOT}/bin/run.sh"]
