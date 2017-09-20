@@ -17,11 +17,12 @@ ENV BOOKDIR /gitbook
 
 WORKDIR $BOOKDIR
 
+ADD scripts/ $BOOKDIR
+RUN chmod +x /gitbook/run.sh
+
 RUN chgrp -R 0 $BOOKDIR && \
     chmod -R g=u $BOOKDIR
 
-ADD scripts/ $BOOKDIR
-RUN chmod +x /gitbook/run.sh
 
 EXPOSE 4000
 RUN chmod g=u /etc/passwd
