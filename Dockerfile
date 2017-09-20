@@ -20,12 +20,13 @@ WORKDIR $BOOKDIR
 RUN chgrp -R 0 $BOOKDIR && \
     chmod -R g=u $BOOKDIR
 
-ADD scripts/run.sh /gitbook/
+ADD scripts/ $BOOKDIR
 RUN chmod +x /gitbook/run.sh
 
-
-VOLUME $BOOKDIR
 EXPOSE 4000
+RUN chmod g=u /etc/passwd
+ENTRYPOINT [ "uid_entrypoint" ]
 USER 10001
 
+VOLUME $BOOKDIR
 CMD ["/bin/bash", "-c", "/gitbook/run.sh"]
