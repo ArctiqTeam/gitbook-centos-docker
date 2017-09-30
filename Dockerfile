@@ -1,5 +1,5 @@
 FROM centos:7
-MAINTAINER stewartshea <shea.stewart@arctiq.cam>
+MAINTAINER stewartshea <shea.stewart@arctiq.ca>
 
 #inspired by billryan/gitbook:base
 
