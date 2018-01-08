@@ -23,7 +23,7 @@ RUN gitbook fetch latest
 
 USER 10001
 WORKDIR ${APP_ROOT}
-ADD /bin/.netrc ~/
+ADD .netrc ~/
 
 EXPOSE 4000
 
