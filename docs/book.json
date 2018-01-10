@@ -1,0 +1,12 @@
+{
+    "title": "Sample Gitbook Application",
+	"gitbook": "> =3.0.0",
+    "plugins": [],
+    "links": {
+        "sidebar": {
+            "Contact us / Support": "https://www.gitbook.com/contact"
+        }
+    },
+    "pluginsConfig": {}
+}		
+
