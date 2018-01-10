@@ -1,4 +1,5 @@
-# Gitbook CentOS Docker
+# GitBook CentOS Docker Container
+
 Gitbook implementation on a CentOS based container. 
 
 This image includes a `docs` directory in which you can place your 
