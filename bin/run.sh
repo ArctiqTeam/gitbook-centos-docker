@@ -10,7 +10,7 @@ exec "$@"
 # git clone -b  $BRANCH $GIT_URL docs
 # cd docs
 
-## Use this code if you wish to build locally
+## Use this code if you wish to build locally from /docs
 cd /opt/app-root/docs
 
 gitbook serve
