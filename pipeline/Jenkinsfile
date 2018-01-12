@@ -7,5 +7,4 @@ node {
     stage 'deploy'
    // sh "oc rollout latest dc/rhel7-fluentd"
     openshiftDeploy(deploymentConfig: 'dc/gitbook-centos-docker')
-
 }
