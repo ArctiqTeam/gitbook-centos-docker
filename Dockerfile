@@ -7,7 +7,8 @@ RUN yum install -y wget git && \
     wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm &&\
     rpm -ivh epel-release-latest-7.noarch.rpm && \
     yum install -y npm && \
-    npm install gitbook-cli -g
+    npm install gitbook-cli -g \
+    npm install ebook-convert
 
 
 ENV APP_ROOT=/opt/app-root
