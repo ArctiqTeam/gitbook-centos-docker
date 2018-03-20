@@ -10,7 +10,10 @@ exec "$@"
 # git clone -b  $BRANCH $GIT_URL docs
 # cd docs
 
+## Install Gitbook Plugins
+cd /opt/app-root/
+gitbook install docs
+
 ## Use this code if you wish to build locally from /docs
 cd /opt/app-root/docs
-gitbook install popup
 gitbook serve
