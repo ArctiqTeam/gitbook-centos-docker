@@ -14,8 +14,7 @@ ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT}
 COPY bin/ ${APP_ROOT}/bin/
  
 # Install gitbook versions
-RUN gitbook fetch 3.2.2 && \
-    npm install gitbook-plugin-popup@0.0.1
+RUN gitbook fetch 3.2.2 
 
 
 COPY docs/ ${APP_ROOT}/docs/

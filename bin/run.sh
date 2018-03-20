@@ -12,5 +12,5 @@ exec "$@"
 
 ## Use this code if you wish to build locally from /docs
 cd /opt/app-root/docs
-
+gitbook install popup
 gitbook serve
