@@ -1,12 +1,15 @@
 {
     "title": "Sample Gitbook Application",
     "plugins": [ 
-        "popup", "green-theme"
+        "popup", "theme-blue"
       ],
     "links": {
         "sidebar": {
             "Contact us / Support": "https://www.gitbook.com/contact"
         }
     },
-    "pluginsConfig": {}
+    "pluginsConfig": {
+        "theme-blue": {
+            "url": "https://github.com/wanghaiyangithub/gitbook-plugin-theme-blue"
+        }
 }		
