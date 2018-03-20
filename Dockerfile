@@ -14,7 +14,7 @@ ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT}
 COPY bin/ ${APP_ROOT}/bin/
  
 # Install gitbook versions
-RUN gitbook fetch 2.6.7 && \
+RUN gitbook fetch 3.2.2 && \
     gitbook install popup
 
 
