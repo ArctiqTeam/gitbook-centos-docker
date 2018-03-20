@@ -7,7 +7,8 @@ RUN yum install -y wget git && \
     wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm &&\
     rpm -ivh epel-release-latest-7.noarch.rpm && \
     yum install -y npm && \
-    npm install gitbook-cli -g 
+    npm install gitbook-cli -g && \
+    npm install gitbook-plugin-popup
 
 ENV APP_ROOT=/opt/app-root
 ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT}
