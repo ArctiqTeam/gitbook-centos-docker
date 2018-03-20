@@ -11,9 +11,10 @@ exec "$@"
 # cd docs
 
 ## Install Gitbook Plugins
-cd /opt/app-root/
-gitbook install docs
+#cd /opt/app-root/
+#gitbook install docs
 
 ## Use this code if you wish to build locally from /docs
 cd /opt/app-root/docs
+gitbook install
 gitbook serve
