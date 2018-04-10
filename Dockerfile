@@ -12,6 +12,10 @@ RUN yum install -y wget git && \
 # Install gitbook versions
 RUN gitbook fetch 3.2.2 
 
+# Install calibre
+RUN wget -nv -O- https://download.calibre-ebook.com/linux-installer.py | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
+
+
 ENV APP_ROOT=/opt/app-root
 ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT}
 COPY bin/ ${APP_ROOT}/bin/
