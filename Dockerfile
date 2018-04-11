@@ -6,6 +6,7 @@ MAINTAINER stewartshea <shea.stewart@arctiq.ca>
 RUN yum install -y wget git && \
     wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm &&\
     rpm -ivh epel-release-latest-7.noarch.rpm && \
+    yum install -y npm libxtst6 libXext libSM libXrender mesa-libGL fontconfig freetype freetype-devel fontconfig-devel libstdc++ libXcomposite && \
     yum install -y npm && \
     npm install gitbook-cli -g
  
