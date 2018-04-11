@@ -6,15 +6,12 @@ if ! whoami &> /dev/null; then
 fi
 exec "$@"
 
-## Uncomment this if you wish to clone a remote repo and branch into docs
-# git clone -b  $BRANCH $GIT_URL docs
-# cd docs
 
-## Install Gitbook Plugins
-#cd /opt/app-root/
-#gitbook install docs
+#git clone -b  $BRANCH $GIT_URL data
+#cd data/docs
+cd ${APP_ROOT}/docs
 
-## Use this code if you wish to build locally from /docs
-cd /opt/app-root/docs
-gitbook install
+# Create PDF
+gitbook pdf ./ ./download.pdf
+
 gitbook serve
