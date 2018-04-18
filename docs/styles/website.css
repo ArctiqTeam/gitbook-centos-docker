@@ -1,0 +1,12 @@
+.book-summary {
+    background: rgb(24,54,105) !important;
+}
+.book-summary ul.summary li a, .book-summary ul.summary li span {
+    color: #ffffff !important;
+}
+.book-summary ul.summary li.active>a {
+    color: #757575 !important;
+}
+.markdown-section {
+    color: rgba(24,54,105,0.8) !important;
+}
