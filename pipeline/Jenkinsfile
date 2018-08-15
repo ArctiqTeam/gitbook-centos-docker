@@ -4,4 +4,10 @@ node {
     stage 'deploy'
         sh "oc rollout latest dc/gitbook-centos-docker"
         //openshiftDeploy(deploymentConfig: 'dc/gitbook-centos-docker')
+
+    stage 'ask for promotion'
+        input id: 'Approve01', message: 'Wanna push to prod?????', ok: 'HANG TIGHT!'
+
+    stage 'tag and promote'
+        sh "oc tag gitbook-centos-docker:latest gitbook-centos-docker:prod"
 }

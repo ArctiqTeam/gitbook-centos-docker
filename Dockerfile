@@ -1,6 +1,7 @@
 FROM arctiqteam/gitbook-base:3.2.3
 MAINTAINER stewartshea <shea.stewart@arctiq.ca>
 
+
 # Set paths, permissions, and add content
 ENV APP_ROOT=/opt/app-root
 ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT}
@@ -18,5 +19,5 @@ WORKDIR ${APP_ROOT}
 
 EXPOSE 4000
 
-# Do the thing
+# Do the thing 1
 CMD ["/bin/bash", "-c", "${APP_ROOT}/bin/run.sh"]
