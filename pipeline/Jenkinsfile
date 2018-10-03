@@ -1,7 +1,10 @@
 node {
-    stage 'build'
-        openshiftBuild(bldCfg: 'gitbook-centos-docker')
-    stage 'deploy'
-        sh "oc rollout latest dc/gitbook-centos-docker"
-        //openshiftDeploy(deploymentConfig: 'dc/gitbook-centos-docker')
+    // stage 'build'
+    //     openshiftBuild(bldCfg: 'gitbook-centos-docker')
+    // stage 'deploy'
+    //     sh "oc rollout latest dc/gitbook-centos-docker"
+    //     //openshiftDeploy(deploymentConfig: 'dc/gitbook-centos-docker')
+    stage 'notify'
+        // send build started notifications
+        slackSend (color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
 }
