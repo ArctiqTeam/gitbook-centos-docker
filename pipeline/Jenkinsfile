@@ -1,11 +1,4 @@
 
-def notify(msg) {
-  def slack_token=System.getenv('SLACK_token')
-  def slack_base_url=System.getenv('SLACK_base_url')
-  def slack_webhook_url=System.getenv('SLACK_webhook_url')
-  slackSend (channel: "#containersecurity-prd", message: "${msg}", baseUrl: "$slack_base_url", token: "$slack_webhook_url")
-}
-
 node {
     // stage 'build'
     //     openshiftBuild(bldCfg: 'gitbook-centos-docker')
