@@ -7,7 +7,7 @@ node {
         stage 'scan image'
             withCredentials([usernamePassword(credentialsId: '4eb0c46e-57cf-472f-b65a-0a69fcee5272', passwordVariable: 'password', usernameVariable: 'username')]) {
                 sh '''
-                docker login -e=shea.stewart@arctiq.ca -u=$username -p=$password
+                docker login -e=shea.stewart@arctiq.ca -u=$username -p=$password docker.io
                 '''
             }
             aqua hideBase: false, hostedImage: 'cicd/gitbook-centos-docker:latest', localImage: '', locationType: 'hosted', notCompliesCmd: '', onDisallowed: 'fail', registry: 'ocp', showNegligible: false
