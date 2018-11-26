@@ -2,8 +2,8 @@
 node {
     try {
         notifyBuild('STARTED')
-        //stage 'build'
-        //  openshiftBuild bldCfg: 'gitbook-centos-docker'
+        stage 'build'
+          openshiftBuild bldCfg: 'gitbook-centos-docker'
         stage 'scan image'
             withCredentials([usernamePassword(credentialsId: '4eb0c46e-57cf-472f-b65a-0a69fcee5272', passwordVariable: 'password', usernameVariable: 'username')]) {
                 sh '''
