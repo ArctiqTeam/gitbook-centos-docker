@@ -2,24 +2,10 @@
 node {
     try {
         notifyBuild('STARTED')
-      stages {
-        stage('build') {
-              steps {
-                script {
-                    openshift.withCluster() {
-                        openshift.withProject() {
-                          def builds = openshift.selector("bc", "gitbook-centos-docker").related('builds')
-                          timeout(5) { 
-                            builds.untilEach(1) {
-                              return (it.object().status.phase == "Complete")
-                            }
-                          }
-                        }
-                    }
-                }
-              }
-        }
-      }
+        stage 'build'
+          sh '''
+          oc start-build gitbook-centos-docker
+          '''
         stage 'scan image'
            // withCredentials([usernamePassword(credentialsId: '4adb7468-19de-48b2-ba8a-9b177ae6d8e9', passwordVariable: 'password', usernameVariable: 'username')]) {
            //     sh '''
