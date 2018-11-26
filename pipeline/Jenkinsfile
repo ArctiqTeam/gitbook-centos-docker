@@ -2,24 +2,28 @@
 node {
     try {
         notifyBuild('STARTED')
+        stage 'build'
+            openshiftBuild bldCfg: 'gitbook-centos-docker'
 
-        stage('Prepare code') {
-            echo 'do checkout stuff'
-        }
+        stage 'scan image'
+           // withCredentials([usernamePassword(credentialsId: '4adb7468-19de-48b2-ba8a-9b177ae6d8e9', passwordVariable: 'password', usernameVariable: 'username')]) {
+           //     sh '''
+           //     docker login -e=shea.stewart@arctiq.ca -u=$username -p=$password
+           //     '''
+           // }
+            aqua hideBase: false, hostedImage: 'cicd/gitbook-centos-docker:latest', localImage: '', locationType: 'hosted', notCompliesCmd: '', onDisallowed: 'fail', registry: 'ocp', showNegligible: false
 
-        stage('Testing') {
-            echo 'Testing'
-            echo 'Testing - publish coverage results'
-        }
 
-        stage('Staging') {
-            echo 'Deploy Stage'
-        }
+        stage 'ask for deployment'
+            input id: 'Approve01', message: 'Looks Good! Wanna deploy?????', ok: 'HANG TIGHT!'
 
-        stage('Deploy') {
-            echo 'Deploy - Backend'
-            echo 'Deploy - Frontend'
-        }
+        stage 'deploy'
+            openshiftDeploy depCfg: 'gitbook-centos-docker', verbose: 'true'
+
+
+        stage 'verify'
+            openshiftVerifyDeployment depCfg: 'gitbook-centos-docker', verbose: 'true', verifyReplicaCount: 'false'
+
 
   } catch (e) {
     // If there was an exception thrown, the build failed
