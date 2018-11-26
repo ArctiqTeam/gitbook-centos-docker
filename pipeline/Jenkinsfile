@@ -5,11 +5,11 @@ node {
         stage 'build'
           openshiftBuild bldCfg: 'gitbook-centos-docker'
         stage 'scan image'
-           // withCredentials([usernamePassword(credentialsId: '4adb7468-19de-48b2-ba8a-9b177ae6d8e9', passwordVariable: 'password', usernameVariable: 'username')]) {
-           //     sh '''
-           //     docker login -e=shea.stewart@arctiq.ca -u=$username -p=$password
-           //     '''
-           // }
+            withCredentials([usernamePassword(credentialsId: '4eb0c46e-57cf-472f-b65a-0a69fcee5272', passwordVariable: 'password', usernameVariable: 'username')]) {
+                sh '''
+                docker login -e=shea.stewart@arctiq.ca -u=$username -p=$password
+                '''
+            }
             aqua hideBase: false, hostedImage: 'cicd/gitbook-centos-docker:latest', localImage: '', locationType: 'hosted', notCompliesCmd: '', onDisallowed: 'fail', registry: 'ocp', showNegligible: false
 
 
