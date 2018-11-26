@@ -3,9 +3,7 @@ node {
     try {
         notifyBuild('STARTED')
         stage 'build'
-          sh '''
-          oc start-build gitbook-centos-docker
-          '''
+          openshiftBuild bldCfg: 'gitbook-centos-docker'
         stage 'scan image'
            // withCredentials([usernamePassword(credentialsId: '4adb7468-19de-48b2-ba8a-9b177ae6d8e9', passwordVariable: 'password', usernameVariable: 'username')]) {
            //     sh '''
@@ -19,14 +17,10 @@ node {
             input id: 'Approve01', message: 'Looks Good! Wanna deploy?????', ok: 'HANG TIGHT!'
 
         stage 'deploy'
-            sh '''
-            oc rollout  latest dc/gitbook-centos-docker
-            '''
+          openshiftDeploy depCfg: 'gitbook-centos-docker', verbose: 'true'
 
         stage 'verify'
-            sh '''
-            echo "running verifications"
-            '''
+          openshiftVerifyDeployment depCfg: 'gitbook-centos-docker', verbose: 'true', verifyReplicaCount: 'false'
 
 
   } catch (e) {
