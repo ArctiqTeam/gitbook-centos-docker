@@ -2,6 +2,7 @@
 node {
     try {
         notifyBuild('STARTED')
+      stages {
         stage('build') {
               steps {
                 script {
@@ -18,6 +19,7 @@ node {
                 }
               }
         }
+      }
         stage 'scan image'
            // withCredentials([usernamePassword(credentialsId: '4adb7468-19de-48b2-ba8a-9b177ae6d8e9', passwordVariable: 'password', usernameVariable: 'username')]) {
            //     sh '''
