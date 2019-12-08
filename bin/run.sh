@@ -11,6 +11,8 @@ exec "$@"
 #cd data/docs
 cd ${APP_ROOT}/docs
 
+gitbook install
+
 # Create PDF
 gitbook pdf ./ ./download.pdf
 
