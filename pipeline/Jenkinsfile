@@ -53,3 +53,46 @@ def notifyBuild(String buildStatus = 'STARTED') {
     colorCode = '#FF0000'
   }
 }
+node {
+    try {
+        notifyBuild('STARTED')
+
+        def templateName = 'gitbook-centos-docker'
+
+        openshift.withCluster() {
+            openshift.withProject() {
+
+                stage('build') {
+                    def builds = openshift.startBuild("${templateName}")
+                    timeout(5) {
+                      builds.untilEach(1) {
+                        return it.object().status.phase == "Complete"
+                      }
+                      builds.logs('-f')
+                    }
+                }
+
+                stage('deploy') {
+                    def dc = openshift.selector('dc', "${templateName}")
+                    dc.rollout().status()
+                }
+
+                stage('ask for promotion') {
+                    input id: 'Approve01', message: 'Wanna push to prod?????', ok: 'HANG TIGHT!'
+                }
+
+                stage('tag and promote') {
+                    openshift.tag("${templateName}:latest", "${templateName}:prod")
+                }
+            }
+        }
+
+  } catch (e) {
+    // If there was an exception thrown, the build failed
+    currentBuild.result = "FAILED"
+    throw e
+  } finally {
+    // Success or failure, always send notifications
+    notifyBuild(currentBuild.result)
+  }
+}
