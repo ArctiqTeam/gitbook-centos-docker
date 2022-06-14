@@ -1,5 +1,5 @@
 .book-summary {
-    background: rgb(24,54,105) !important;
+    background: rgb(105,24,32) !important;
 }
 .book-summary ul.summary li a, .book-summary ul.summary li span {
     color: #ffffff !important;
@@ -10,3 +10,4 @@
 .markdown-section {
     color: rgba(24,54,105,0.8) !important;
 }
+
